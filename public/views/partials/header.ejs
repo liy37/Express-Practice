@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">  css file */ -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+        <link href="../../stylesheets/testing123.css" type="text/css" rel="stylesheet"> <!-- css file */ -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher:700" rel="stylesheet">
+        <title>The Neverending Story</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    <nav>
+        <table class="tablecontainer">
+            <thead>
+                <tr>
+                    <% if(currentUser) { %>
+                        <th class="op1 fontColor"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, <%= currentUser.username %></th>
+                        <th class="op2 fontColor"><a class="navLink" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
+                        <th class="op3 fontColor"><button class="navLink saveButton"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
+                        <th class="op4 fontColor"><a class="navLink" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></th>
+                    <% } else{ %>
+                        <th class="op1 fontColor"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, guest</th>
+                        <th class="op2 fontColor"><a class="navLink" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
+                        <th class="op3 fontColor"><button class="navLink saveButton"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
+                        <!--
+                        <th class="op4 fontColor">
+                            <form action="/login" method="POST"> 
+                                <input class="navForm" type="text" name="username" placeholder="username">
+                                <input class="navForm" type="password" name="password" placeholder="password">
+                                <a class="navLink" href="/login"><button class="loginButton" type="submit" value="Login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button></a>
+                            </form>
+                        </th> -->
+                        <th class="op4 fontColor"><button class="navLink saveButton nav-login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button></th>
+                    <% }; %>
+                </tr> <!--
+                <% if(!currentUser) { %>
+                <tr>
+                    <th></th>
+                    <th class="op4 fontColor">         
+                        <p class="navRegis">Don't have an account? <a class="navLink" href="/register">Register</a></p>
+                    </th>
+                </tr>
+                <% }; %>-->
+            </thead>
+        </table>
+    </nav>
+    
+<div class="modal appear">
+    <div class="modal-box appear">
+        <table class="modal-table appear">
+            <thead class="modal-thead appear">
+                <tr>
+                    <th class="modal-header appear border-right"> Register </th>
+                    <th class="modal-header appear"> Login </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="modal-forms appear">
+                    <td class="modal-data appear border-right"> 
+                        <form action="/register" method="POST" id="modalRegis">
+                            <div class="form-container appear">
+                                <input class="modal-form appear" type="text" name="username" placeholder="username">
+                            <!--
+                            <div class="form-container">
+                                <input class="modal-form" type="email" name="email" placeholder="email">
+                            </div>
+                            <div class="form-container">
+                                <input class="modal-form" type="password" name="password" placeholder="verify password">
+                            </div>  
+                            -->
+                                <input class="modal-form appear" type="password" name="password" placeholder="password">
+                            </div>
+              
+                        </form>
+                    </td>
+                    <td class="modal-data appear">                             
+                        <form action="/login" method="POST" id="modalLogin"> 
+                            <div class="form-container appear">
+                                <input class="modal-form appear" type="text" name="username" placeholder="username">
+                                <input class="modal-form appear" type="password" name="password" placeholder="password">
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr class="modal-footer appear">
+                    <td class="border-right">
+                        <button class="regisModalButton appear" type="submit" value="register" form="modalRegis">Register</button>
+                    </td>
+                    <td>
+                        <button class="loginModalButton appear" type="submit" value="Login" form="modalLogin">Login</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

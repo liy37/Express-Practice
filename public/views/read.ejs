@@ -1,0 +1,113 @@
+<% include partials/header %>
+<% if(currentUser){ %>
+    <div class="savecontainer">
+        <table class="saveload">
+            <thead>
+                <tr>
+                    <th class=saveState id="s1">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> :1 
+                    </th>
+                    <th class=loadState id="l1 clickable">
+                    <a href = "<%= currentUser.saves['s1'].link %>">
+                        <%= currentUser.saves['s1'].title %>
+                    </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th class=saveState id="s2">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> :2
+                    </th>
+                    <th class=loadState id="l2 clickable">
+                    <a href = "<%= currentUser.saves['s2'].link %>">
+                        <%= currentUser.saves['s2'].title %>
+                    </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th class=saveState id="s3">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> :3
+                    </th>
+                    <th class=loadState id="l3 clickable">
+                    <a href = "<%= currentUser.saves['s3'].link %>">
+                        <%= currentUser.saves['s3'].title %>
+                    </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th class=saveState id="s4">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> :4
+                    </th>
+                    <th class=loadState id="l4 clickable">
+                    <a href = "<%= currentUser.saves['s4'].link %>">
+                        <%= currentUser.saves['s4'].title %>
+                    </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th class=saveState id="s1">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> :5
+                    </th>
+                    <th class=loadState id="l5 clickable">
+                    <a href = "<%= currentUser.saves['s5'].link %>">
+                        <%= currentUser.saves['s5'].title %>
+                    </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    <!--<h1>SAVE 1</h1>
+    <h1>SAVE 2</h1>
+    <h1>SAVE 3</h1>
+    <h1>SAVE 4</h1>
+    <h1>SAVE 5</h1>-->
+    </div>
+<% } %>
+
+<div class = readingcontainer>
+    <p class= "wraptext titletext">(<span class = upvotetext><%= posts.popularity %></span>) <%= posts.title %> - <a class = authortext href="/user/<%= posts.author %>"><%= posts.author %></a></p></div>
+    
+<div class= readingcontainer>
+    <p class = "readingheader"><strong>Story:</strong></p>
+    <p class=wraptext><%= posts.text %></p>
+    <form action="/read/<%= posts._id %>/upvote" method="POST">
+        <button class = "upvotebutton"><i class="fa fa-arrow-up" aria-hidden="true"></i>Like</button>
+    </form>
+</div> 
+<div class = choicecontainer>
+    <form action="/read" method="GET" id="choice">
+        <input type="hidden" name="parentid" value="<%= posts._id %>">
+        <button name="choiceP" value="A" class="choicebutton"><%= posts.choiceA %></button>
+        <button name="choiceP" value="B" class="choicebutton"><%= posts.choiceB %></button>
+        <% if(posts.choiceC!=""){ %>
+            <button name="choiceP" value="C" class="choicebutton"><%= posts.choiceC %></button>
+        <% } %>
+        <% if(posts.choiceD!=""){ %>
+            <button name="choiceP" value="D" class ="choicebutton"><%= posts.choiceD %></button>
+        <% } %>
+    </form>
+</div>
+
+<p class = submissionButton><a class = registerlink href="/read/<%= posts.parentid %>">Previous Story</a></p>
+
+<h1><a class = optioncontainer href="/read/search?parentid=<%= posts.parentid %>&choiceP=<%= posts.choiceP %>">See all versions</a></h1>
+<h1><a class = optioncontainer href="/read/new?parentid=<%= posts.parentid %>&choiceP=<%= posts.choiceP %>">Write your own version</a></h1>
+
+<button id="comment-collapse">See comments</button>
+    <div class=commentscontainer>
+    <form action = "/read/<%= posts._id %>" method="POST">
+        <input type="text" name="comment"  placeholder="Submit a comment" pattern=".{3,}" title="Three or more characters" required>
+        <input type="hidden" name="parentid" value="<%= posts._id %>">
+        <button>Submit</button>
+    </form>    
+    <% posts.comments.forEach(function(comment){ %>
+        <p class = commenttext><%= comment.text %></p>
+        <p class = commentinfo> User: <%= comment.author %></p>
+        <p class = commentinfo> Date:
+        <%= comment.date.getMonth() + 1%>/<%= comment.date.getDate() %>/<%= comment.date.getFullYear() %>
+        </p>
+        <p></p> <!-- skip a line -->
+    <% }); %>
+    </div>
+
+<script src="../scripts/read.js"></script>
+<% include partials/footer %>
