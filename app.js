@@ -12,7 +12,7 @@ var express       = require("express"),
 
 //Set up the app
 //Use any your mongodb database here.
-mongoose.connect("mongodb://dasani:megaman123*/@ds123312.mlab.com:23312/adventure");
+mongoose.connect("DUMMY MONGODB URL");
 
 
 app.set("view engine", "ejs");
