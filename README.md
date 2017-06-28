@@ -19,6 +19,6 @@ to install all the dependencies and use node app.js to start the app.
 This app will be hosted on port 3000 by default. 
 
 # Contributors
-Gyeong Jo Kim - Node.js, ejs, scripts, express.js, and some html/css.
-Danny Li - css and html
-Jiwoo Kim - css and html
+- Gyeong Jo Kim - Node.js, ejs, scripts, express.js, and some html/css.
+- Danny Li - css and html
+- Jiwoo Kim - css and html
