@@ -9,10 +9,14 @@ Alternate versions of these stories can be created by the users, and if the choi
 The stories are sorted by a simple popularity system, where a user can upvote a story(unlimited amount of times for now).
 
 # Installation
-Upon downloading this directory, you can run 
-    npm install 
+Upon downloading this directory, you can run
+
+- npm install 
+
 to install all the dependencies and use node app.js to start the app. 
-It will be hosted on port 3000 by default. 
+- You will need to provide your own mongodb database in app.js to link the database.
+
+This app will be hosted on port 3000 by default. 
 
 # Contributors
 Gyeong Jo Kim - Node.js, ejs, scripts, express.js, and some html/css.
