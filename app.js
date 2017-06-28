@@ -11,7 +11,10 @@ var express       = require("express"),
     
 
 //Set up the app
-mongoose.connect("mongodb://dasani:megaman123*/@ds123312.mlab.com:23312/adventure");
+//Use any your mongodb database here.
+mongoose.connect("DUMMY-DATABASE-URL");
+
+
 app.set("view engine", "ejs");
 app.set("views","./public/views");
 app.use(express.static("public"));
