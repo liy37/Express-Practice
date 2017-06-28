@@ -1,16 +1,13 @@
 <% include partials/header %>
-<div class="opaqueBg">
-    <div class="loginContainer">
-        <h1 class="loginMain">Login</h1>
+<div class="opaque-bg">
+    <div class="login-container">
+        <h1 class="login-main">Login</h1>
         <form action="/login" method="POST" id="loginform">
-            <input class="loginForm" type="text" name="username" placeholder="username" id="loginid"><div id="logindiv"></div>
-            <input class="loginForm" type="password" name="password" placeholder="password" id="loginpw"><div id="pwdiv"></div>
-            <button class="loginMainButton" type="submit" value="Login">Login</button>
-            <!--<input class="loginMainButton" type="submit" value="Login">-->
+            <input class="login-form" type="text" name="username" placeholder="username" id="loginid"><div id="logindiv"></div>
+            <input class="login-form" type="password" name="password" placeholder="password" id="loginpw"><div id="pwdiv"></div>
+            <button class="login-main-button" type="submit" value="Login">Login</button>
         </form>
-        <p class="loginRegis">Don't have an account?  <a class= "registerlink" href="/register">Register</a></p>
+        <p class="login-regis">Don't have an account?  <a class= "regis-link" href="/register">Register</a></p>
     </div>
 </div>
-<script src="../scripts/login.js"></script>
-</body>
-</html>
+<% include partials/footer %>

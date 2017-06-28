@@ -21,7 +21,7 @@ $.ajax({
 });
 }
 
-$(".saveState").on("click", function(e){
+$(".save-state").on("click", function(e){
     var savenum = $(this).attr('id')
     var pathname = window.location.pathname;
     $.ajax({
@@ -43,5 +43,5 @@ $(document).ready(function(){
 })
 
 $("#comment-collapse").on("click", function(e){
-    $(".commentscontainer").toggle();
+    $(".comments-container").toggle();
 })

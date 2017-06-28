@@ -2,10 +2,10 @@ var modalwindow = $(".modal");
 var modalbox = $(".modal-box");
 var modalbutton = $(".nav-login");
 var modal = document.querySelector(".modal");
-var navbar = $(".tablecontainer");
+var navbar = $(".table-container");
 var submitbutton = $("#submit-button");
 var loggedin = 0;
-var savebutton = $("button.saveButton");
+var savebutton = $("button.save-button");
 
 navbar.on("click", ".nav-login", function(){
     openmodal();
@@ -50,7 +50,7 @@ savebutton.on("click", function(e){
         e.preventDefault();
         openmodal();        
     } else{
-        $(".savecontainer").slideToggle();
+        $(".save-container").slideToggle();
         $(".crcontainer").slideToggle();       
     }
 });

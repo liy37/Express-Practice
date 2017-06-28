@@ -13,37 +13,21 @@
     </head>
     <body>
     <nav>
-        <table class="tablecontainer">
+        <table class="table-container">
             <thead>
                 <tr>
                     <% if(currentUser) { %>
-                        <th class="op1 fontColor"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, <%= currentUser.username %></th>
-                        <th class="op2 fontColor"><a class="navLink" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
-                        <th class="op3 fontColor"><button class="navLink saveButton"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
-                        <th class="op4 fontColor"><a class="navLink" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></th>
+                        <th class="op1"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, <%= currentUser.username %></th>
+                        <th class="op2"><a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
+                        <th class="op3"><button class="nav-link save-button"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
+                        <th class="op4"><a class="nav-link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></th>
                     <% } else{ %>
-                        <th class="op1 fontColor"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, guest</th>
-                        <th class="op2 fontColor"><a class="navLink" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
-                        <th class="op3 fontColor"><button class="navLink saveButton"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
-                        <!--
-                        <th class="op4 fontColor">
-                            <form action="/login" method="POST"> 
-                                <input class="navForm" type="text" name="username" placeholder="username">
-                                <input class="navForm" type="password" name="password" placeholder="password">
-                                <a class="navLink" href="/login"><button class="loginButton" type="submit" value="Login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button></a>
-                            </form>
-                        </th> -->
-                        <th class="op4 fontColor"><button class="navLink saveButton nav-login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button></th>
+                        <th class="op1"><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, guest</th>
+                        <th class="op2"><a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></th>
+                        <th class="op3"><button class="nav-link save-button"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></th>
+                        <th class="op4"><button class="nav-link save-button nav-login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button></th>
                     <% }; %>
-                </tr> <!--
-                <% if(!currentUser) { %>
-                <tr>
-                    <th></th>
-                    <th class="op4 fontColor">         
-                        <p class="navRegis">Don't have an account? <a class="navLink" href="/register">Register</a></p>
-                    </th>
                 </tr>
-                <% }; %>-->
             </thead>
         </table>
     </nav>
@@ -87,10 +71,10 @@
                 </tr>
                 <tr class="modal-footer appear">
                     <td class="border-right">
-                        <button class="regisModalButton appear" type="submit" value="register" form="modalRegis">Register</button>
+                        <button class="regis-modal-button appear" type="submit" value="register" form="modalRegis">Register</button>
                     </td>
                     <td>
-                        <button class="loginModalButton appear" type="submit" value="Login" form="modalLogin">Login</button>
+                        <button class="login-modal-button appear" type="submit" value="Login" form="modalLogin">Login</button>
                     </td>
                 </tr>
             </tbody>

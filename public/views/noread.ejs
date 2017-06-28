@@ -1,16 +1,16 @@
 <% include partials/header %>
-<link rel="stylesheet" type="text/css" href="theme.css">
-<div class ="opaqueBg">
-<div class="loginContainer">
-<h1 class = "submissionMain">DEAD END</h1>
-<h1 class = submissiontext>This storyline does not exist yet.</h1>
-<p class = submissionprompt>Would you like to add one?</p>
-<form action="/read/new" method="GET">
-<input type="hidden" name="parentid" value="<%= parentid %>"">
-<input type="hidden" name="choiceP" value="<%= choiceP %>">
-<button id="submit-button">Yes, I want to make one!</button>
-</form>
+<!--<link rel="stylesheet" type="text/css" href="theme.css">-->
+<div class ="opaque-bg">
+    <div class="login-container">
+        <h1 class = "submissionMain">DEAD END</h1>
+        <h1 class = "submissiontext">This storyline does not exist yet.</h1>
+        <p class = "submissionprompt">Would you like to add one?</p>
+        <form action="/read/new" method="GET">
+            <input type="hidden" name="parentid" value="<%= parentid %>">
+            <input type="hidden" name="choiceP" value="<%= choiceP %>">
+            <button id="submit-button">Yes, I want to make one!</button>
+        </form>
+    </div>
+    <p class = "back-button"><a class = "back-link" href="#" onclick="history.go(-1)">Go back</a></p>
 </div>
-</div>
-<p class = submissionButton><a class = registerlink href="#" onclick="history.go(-1)">Go back</a></p>
 <% include partials/footer %>

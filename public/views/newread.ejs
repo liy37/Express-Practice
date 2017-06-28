@@ -1,39 +1,40 @@
 <% include partials/header %>
-<div class="opaqueBg">
-<div class="loginContainer submissionContainer">
-<h1 class = loginMain>Submission</h1></div>
+<div class="opaque-bg">
+    <div class="login-container submission-container">
+    <h1 class = "login-main">Submission</h1></div>
 
-<form action="/read" method="POST" id="post-form">
-    <p class = inputField>Title</p><br />
-    <textarea class = "loginForm" placeholder="10 characters max" name="post[title]" cols="100" id="post-title"></textarea><br>
-    <input type="hidden" name="post[author]" value="<%= currentUser.username %>">
-    <p class = inputField>Story</p><br>
-    <textarea class = "loginForm" placeholder="1200 characters max" name="post[text]" cols="100" rows="20" id="post-text"></textarea><br>
-    <p class = inputField>Summary</p><br>
-    <textarea class = "loginForm" placeholder="200 characters max" name="post[summary]" cols="100" id="post-summary"></textarea><br>
-    <p></p>
-    
-    <input class = "loginForm" type="hidden" name="post[parentid]" placeholder="<%= parentid %>" value="<%= parentid %>">
-    <input class = "loginForm" type="hidden" name="post[choiceP]" placeholder='<%= choiceP %>' value="<%= choiceP %>">
-    
-    <p class = inputField>Choice A</p><br>
-    <textarea class = "loginForm" name="post[choiceA]" placeholder="(Must have at least 2 choices)" cols="100" id="post-ca"></textarea><br>
-    <p class = inputField>Choice B</p>
-    <br><textarea class = "loginForm" name="post[choiceB]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cb"></textarea><br>
-    <p class = inputField>Choice C</p>
-    <br><textarea class = "loginForm" name="post[choiceC]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cc"></textarea><br>
-    <p class = inputField>Choice D</p>
-    <br><textarea class = "loginForm" name="post[choiceD]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cd"></textarea><br>
-    <p></p>
-    <button class = "loginMainButton">Submit</button>
-</form>
-<div id="newpost-checklist">
-    <p><i class="fa fa-times" aria-hidden="true"></i>Title must be between 1-80 characters.</p>
-    <p><i class="fa fa-times" aria-hidden="true"></i>Story must be between 1-1200 characters.</p>
-    <p><i class="fa fa-times" aria-hidden="true"></i>Summary must be between 1-300 characters.</p>
-    <p><i class="fa fa-times" aria-hidden="true"></i>Choice A and Choice B must be filled.</p>
+    <form action="/read" method="POST" id="post-form">
+        <p class = "input-field">Title</p><br />
+        <textarea class = "login-form" placeholder="10 characters max" name="post[title]" cols="100" id="post-title"></textarea><br>
+        <input type="hidden" name="post[author]" value="<%= currentUser.username %>">
+        <p class = "input-field">Story</p><br>
+        <textarea class = "login-form" placeholder="1200 characters max" name="post[text]" cols="100" rows="20" id="post-text"></textarea><br>
+        <p class = "input-field">Summary</p><br>
+        <textarea class = "login-form" placeholder="200 characters max" name="post[summary]" cols="100" id="post-summary"></textarea><br>
+        <p></p>
+        
+        <input class = "login-form" type="hidden" name="post[parentid]" placeholder="<%= parentid %>" value="<%= parentid %>">
+        <input class = "login-form" type="hidden" name="post[choiceP]" placeholder='<%= choiceP %>' value="<%= choiceP %>">
+        
+        <p class = "input-field">Choice A</p><br>
+        <textarea class = "login-form" name="post[choiceA]" placeholder="(Must have at least 2 choices)" cols="100" id="post-ca"></textarea><br>
+        <p class = "input-field">Choice B</p>
+        <br><textarea class = "login-form" name="post[choiceB]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cb"></textarea><br>
+        <p class = "input-field">Choice C</p>
+        <br><textarea class = "login-form" name="post[choiceC]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cc"></textarea><br>
+        <p class = "input-field">Choice D</p>
+        <br><textarea class = "login-form" name="post[choiceD]" placeholder= "(Must have at least 2 choices)" cols="100" id="post-cd"></textarea><br>
+        <p></p>
+        <button class = "login-main-button">Submit</button>
+    </form>
+
+    <div id="newpost-checklist">
+        <p><i class="fa fa-times" aria-hidden="true"></i>Title must be between 1-80 characters.</p>
+        <p><i class="fa fa-times" aria-hidden="true"></i>Story must be between 1-1200 characters.</p>
+        <p><i class="fa fa-times" aria-hidden="true"></i>Summary must be between 1-300 characters.</p>
+        <p><i class="fa fa-times" aria-hidden="true"></i>Choice A and Choice B must be filled.</p>
+    </div>
+    <p class = "back-button"><a class = "back-link" href="/read">Go back</a></p>
 </div>
-<p class = submissionButton><a class = registerlink href="/read">Go back</a></p>
-</div></div>
 <script src="../scripts/submitpost.js"></script>
 <% include partials/footer %>
