@@ -17,3 +17,9 @@ to install all the dependencies and use node app.js to start the app.
 - You will need to provide your own mongodb database in app.js to link the database.
 
 This app will be hosted on port 3000 by default. 
+
+# Contributors
+
+- Gyeong Jo Kim - Backend and some front-end
+- Jiwoo Kim - Html + css
+- Danny Li - Html + css
