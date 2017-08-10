@@ -68,6 +68,7 @@ app.get("/read", function(req, res){
     });
 });
 
+// Create a new post
 app.post("/read", function(req, res){
     post.create(req.body.post, function(err, newlyPosted){
         if(err){
@@ -78,6 +79,7 @@ app.post("/read", function(req, res){
     });
 });
 
+// Create a comment
 app.post("/read/:postid", isLoggedIn, function(req, res){
     post.findById(req.params.postid, function(err, posts){
         if(err){
@@ -97,6 +99,7 @@ app.post("/read/:postid", isLoggedIn, function(req, res){
     });    
 });
 
+// Upvoting a post
 app.post("/read/:postid/upvote", isLoggedIn, function(req, res){
     post.findById(req.params.postid, function(err, todo){
         if(err){
@@ -116,10 +119,12 @@ app.post("/read/:postid/upvote", isLoggedIn, function(req, res){
 });
 
 
+// Page to write a new post
 app.get("/read/new", isLoggedIn, function(req, res){
     res.render("newread", {"parentid": req.query["parentid"], "choiceP": req.query["choiceP"]});
 });
 
+// Show all the posts with the given parentid, sorting it by popularity
 app.get("/read/search", function(req, res){
     post.find({"parentid": req.query["parentid"], "choiceP": req.query["choiceP"]}).sort({ popularity: -1 }).exec(function(err, posts) {
         if(err){
@@ -130,6 +135,7 @@ app.get("/read/search", function(req, res){
     });
 });
 
+// Show the comments underneath the story
 app.get("/read/:postid", function(req,res){
     post.findById(req.params.postid).populate("comments").exec(function(err, posts){
         if(err){
@@ -142,6 +148,7 @@ app.get("/read/:postid", function(req,res){
     });
 });
 
+// Upvoting
 app.get("/read/:postid/upvote", function(req, res){
     res.redirect("/read/" + req.params.postid);
 });
@@ -180,6 +187,7 @@ app.post("/register", function(req, res){
      });
 });
 
+// Creating a new user account
 app.post("/user", function(req,res){
     post.findById(req.body.url.substring(6), function(err, posts){
         if(err){
@@ -200,6 +208,7 @@ app.post("/user", function(req,res){
     });
 });
 
+// Show posts by the user
 app.get("/user/:userid", function(req,res){
     post.find({author: req.params.userid}, function(err, posts){
         if(err){
@@ -212,6 +221,7 @@ app.get("/user/:userid", function(req,res){
     });
 });
 
+// Separate ajax calls for handling login information
 app.post("/ajax/user", function(req,res){
     res.json(req.user);
 })
@@ -220,6 +230,7 @@ app.post("/ajax/login", passport.authenticate("local"), function(req, res){
     res.json(req.session.returnTo||"/");
 });
 
+// Ajax to handle posts
 app.post("/ajax/read", isLoggedIn, function(req, res){
     post.create(req.body.post, function(err, newlyPosted){
         if(err){
